@@ -1,0 +1,122 @@
+#include <iostream>
+
+#include "bank1.h"
+
+using namespace std;
+
+
+
+double checkbal = 0, accountwithdraw, accountdeposit;
+
+
+
+int main()
+
+{
+
+	ATM account;
+	account.guiMenu();
+
+	
+
+	dta:
+
+	char respond;	
+
+	int choice;
+
+	cout<< "\nSelect Options:";
+
+	cin >>choice;
+
+
+
+	ATM a;
+
+	switch(choice){
+
+	
+
+	case 0:
+
+		a.setvalue();
+
+		goto dta;
+
+		break;
+
+	case 1:
+
+		cout<<"Enter the withdrawal value: ";
+
+		cin>>accountwithdraw;
+
+		if(accountwithdraw<=checkbal)
+
+		checkbal=checkbal-accountwithdraw;
+
+		else
+
+		cout<<"Not Enough Funds"<<endl;
+
+		goto dta;
+
+		break;
+
+	case 2:
+
+		cout<<"The Account Balance is:P ";
+
+		cout<< checkbal <<endl;
+
+		goto dta;
+
+		break;
+
+	case 3:
+
+		cout<<"Enter the deposit value:";
+
+		cin>>accountdeposit;
+
+		checkbal=checkbal+accountdeposit;
+
+		cout<<"The Account Balance is: P "<<checkbal<<endl;
+
+		goto dta;
+
+		break;
+
+	case 4:
+
+		a.showdata();
+
+		goto dta;
+
+		break;
+
+		
+
+	case 5:
+
+		a.leave();
+
+		break;
+
+		
+
+	default:
+
+		a.error();
+
+		goto dta;
+
+		break;
+
+	}while ('Y' == respond || 'y' == respond|| 'y' != respond || 'Y' != respond);
+
+	cout <<" Out of Duty.....\n";
+
+	return 0;
+
+	}
